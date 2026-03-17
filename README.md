@@ -71,6 +71,17 @@ Folder:
 
 ---
 
+## publish-skill
+
+A meta-skill designed to guide AI agents on how to officially publish a newly developed skill to the public repository.
+It provides experiential best practices, automated structure review, clean copying, and English translation instructions.
+
+Folder:
+
+`skills/publish-skill/`
+
+---
+
 # Skill Structure
 
 Each Skill basically has the following structure:
