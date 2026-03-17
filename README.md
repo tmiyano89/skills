@@ -60,15 +60,14 @@ Folder:
 
 ---
 
-## page-streaming
+## stream-crawler
 
-A common observation Skill to fetch dynamic web pages **synchronously**.
-It opens a URL using Playwright, executes an optional arbitrary init script, and then continuously captures up to N pages, dividing content such as infinitely scrolling pages into page units for efficient analysis.
-It can also detect the page type and retry with optimized fetching strategies.
+`stream-crawler` is an implementation designed to fetch pages with infinite scroll or lazy loading in stages, **prioritizing fetch accuracy over speed**.
+It accurately captures content on URLs, including static pages, SPAs, and virtual lists, with a reproducible fetching strategy.
 
 Folder:
 
-`skills/page-streaming/`
+`skills/stream-crawler/`
 
 ---
 
