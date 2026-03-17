@@ -12,10 +12,12 @@ This skill is designed to execute dynamic page fetching following a set procedur
 
 ## Execution Environment
 
+**Note:** All paths and operations described in this document assume that your current working directory is the skill directory (the directory containing this `SKILL.md` file), denoted as `<skill_directory>`.
+
 For the first time, prepare Python and Playwright.
 
 ```bash
-cd release/stream-crawler
+cd <skill_directory>
 python3 --version
 python3 -m venv .venv
 source .venv/bin/activate
@@ -26,7 +28,7 @@ playwright install chromium
 Afterwards, activate the virtual environment to execute.
 
 ```bash
-cd release/stream-crawler
+cd <skill_directory>
 source .venv/bin/activate
 ```
 
