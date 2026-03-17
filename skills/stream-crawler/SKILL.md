@@ -3,7 +3,7 @@ name: stream-crawler
 description: Use Playwright to capture URLs that are easily missed by normal fetching, such as infinite scroll, lazy loading, virtual lists, and SPA listings. Use this when you want to save URL content and page-streaming is insufficient.
 ---
 
-This skill is designed to execute dynamic page fetching following a set procedure. When a target URL is received, first check the execution environment, perform setup if necessary, and then run the existing script. After fetching, check the generated files in `sessions/`, and concisely report to the user how much was captured, and what happened if there were failures or missing data.
+This skill is designed to execute dynamic page fetching following a set procedure. When a target URL is received, first check the execution environment, perform setup if necessary, and then run the existing script. After fetching, check the generated files in the specified output directory (e.g., `<output_directory>`), and concisely report to the user how much was captured, and what happened if there were failures or missing data.
 
 ## When to Use
 
@@ -39,15 +39,15 @@ Normal fetch:
 ```bash
 python scripts/stream_crawler.py \
   --url "https://example.com/list" \
-  --session-dir sessions/example
+  --session-dir "<output_directory>/example"
 ```
 
 Outputs to check:
 
-- `sessions/example/curl.html`
-- `sessions/example/page_type.json`
-- `sessions/example/pages/page_000N.json`
-- `sessions/example/logs/crawler.log`
+- `<output_directory>/example/curl.html`
+- `<output_directory>/example/page_type.json`
+- `<output_directory>/example/pages/page_000N.json`
+- `<output_directory>/example/logs/crawler.log`
 
 
 ## How to Read the Outputs
