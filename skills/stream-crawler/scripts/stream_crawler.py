@@ -331,24 +331,22 @@ def _has_new_content(previous: dict, current: dict) -> tuple[bool, list[str]]:
 
 
 async def _capture_main(page) -> tuple[str, str]:
+    html = await page.content()
     js = """
     () => {
       const main = document.querySelector("main") || document.querySelector('[role="main"]') || document.body;
       return {
-        html: main ? main.innerHTML : "",
         text: main ? (main.innerText || "") : "",
       };
     }
     """
     try:
         result = await page.evaluate(js)
-        html = result.get("html") or ""
         text = (result.get("text") or "").strip()[:50000]
-        if html:
+        if text:
             return html, text
     except Exception:
         pass
-    html = await page.content()
     return html, _html_to_text(html)
 
 
@@ -567,8 +565,12 @@ def main() -> None:
         default=DEFAULT_SETTLE_TIMEOUT_MS,
         help="Max ms to wait for growth to stop",
     )
+    parser.add_argument("--fast", action="store_true", help="Fast mode: only fetch page 1 without scrolling")
     parser.add_argument("--init-script", type=str, default=None, metavar="JS_OR_PATH")
     args = parser.parse_args()
+
+    if args.fast:
+        args.max_pages = 1
 
     init_script = None
     if args.init_script:

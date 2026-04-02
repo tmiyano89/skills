@@ -42,6 +42,15 @@ python scripts/stream_crawler.py \
   --session-dir "<output_directory>/example"
 ```
 
+Fast fetch (only fetch page 1 without scrolling):
+
+```bash
+python scripts/stream_crawler.py \
+  --url "https://example.com/target" \
+  --session-dir "<output_directory>/example" \
+  --fast
+```
+
 Outputs to check:
 
 - `<output_directory>/example/curl.html`
